@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import { useEffect } from "react";
@@ -13,7 +12,7 @@ const useUpcomingMovies = () => {
     );
 
     const json = await data.json();
-    // console.log(json.results);
+
     dispatch(addUpcomingMovies(json.results));
   };
   useEffect(() => {
@@ -22,4 +21,3 @@ const useUpcomingMovies = () => {
 };
 
 export default useUpcomingMovies;
-// "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1"

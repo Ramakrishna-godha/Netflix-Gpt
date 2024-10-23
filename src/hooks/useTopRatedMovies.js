@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import { useEffect } from "react";
@@ -18,7 +17,7 @@ const useTopRatedMovies = () => {
   };
   useEffect(() => {
     getTopRatedMovies();
-  }, []);
+  });
 };
 
 export default useTopRatedMovies;
