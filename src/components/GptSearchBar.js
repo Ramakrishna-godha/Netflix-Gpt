@@ -10,6 +10,7 @@ const GptSearchBar = () => {
   const dispatch = useDispatch();
   // const searchText = useRef(null);
   const [userInput, SetUserInput] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const genAI = new GoogleGenerativeAI(process.env.REACT_APP_API_KEY);
 
@@ -38,6 +39,7 @@ const GptSearchBar = () => {
 
   const sendMessage = async () => {
     try {
+      setLoading(true);
       const query = `Give me a list of movies in the format "Movie 1, Movie 2 ...." based on the following criteria: ${userInput}.\n\nThe list should only contain the names of the movies, separated by commas, without any additional text or information. And give only 10 movie names.`;
 
       const result = await model.generateContent(query);
@@ -54,8 +56,10 @@ const GptSearchBar = () => {
       dispatch(
         addGptMovieResults({ movieNames: gptMovies, movieResults: tmdbResults })
       );
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching AI response:", error);
+      setLoading(false);
     }
   };
 
@@ -78,6 +82,11 @@ const GptSearchBar = () => {
         >
           {lang[langKey].search}
         </button>
+        {loading ? (
+          <p className="text-center pb-3 text-white col-span-12">Loading...</p>
+        ) : (
+          <p className="text-center text-white col-span-12"></p>
+        )}
       </form>
     </div>
   );

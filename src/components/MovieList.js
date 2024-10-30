@@ -1,20 +1,20 @@
-import React from "react";
+import { Link } from "react-router-dom";
+
 import MovieCards from "./MovieCards";
 
 const MovieList = ({ title, movies }) => {
-  // console.log(movies);
-
   return (
-    <div className="px-6 ">
-      <h1 className=" text-lg md:text-3xl py-4 text-black">{title}</h1>
-
-      <div className="flex movie overflow-x-scroll scrollbar-hide">
+    <div className="overflow-x-hidden px-6  text-white ">
+      <h1 className="text-3xl font-bold py-6">{title}</h1>
+      <div className="flex movie overflow-x-scroll overflow-y-hidden scrollbar-none">
         <div className="flex">
           {movies?.map((movie) => (
-            <MovieCards
+            <Link
               key={movie.id}
-              posterPath={movie.poster_path}
-            />
+              to={"/browse/" + movie.id}
+            >
+              <MovieCards posterPath={movie.poster_path} />
+            </Link>
           ))}
         </div>
       </div>
