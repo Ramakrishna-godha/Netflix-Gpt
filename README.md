@@ -38,6 +38,15 @@
 -Gpt Search Page
 -Gpt search Bar
 -Multi-Language Feature in Our App
+-Get Gemini API Key
+-Gemini Search Api Call
+-Searched GptMovieSuggestions from TMBD
+-Created GptSlice Added Data
+-ReUsed MovieList Component To Movie Suggestion Container
+-Memoization
+Added .env Files
+-Added .env files to gitignore
+-Made Our Site Responsive
 
 #Features
 -Login/Sign Up
@@ -52,6 +61,3 @@
 -Movie Suggestions
 -MovieLists \* N
 -NetFlix-Gpt
-
-- Search Bar  
-  -Movie Suggestions
