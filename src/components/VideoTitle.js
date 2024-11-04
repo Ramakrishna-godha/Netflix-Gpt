@@ -10,7 +10,9 @@ const VideoTitle = ({ title, overview, movieId }) => {
     <div className="w-screen absolute aspect-video pt-[17%] px-6 md:px-24 text-white bg-gradient-to-r from-black">
       <h1 className=" text-2xl md:text-6xl font-bold">{title}</h1>
       {showInfo && (
-        <p className="hidden md:inline-block py-6 text-lg w-1/4">{overview}</p>
+        <p className="hidden md:inline-block py-6 text-lg w-1/4 lg:w-2/4">
+          {overview}
+        </p>
       )}
       <div className="my-2 md:m-0">
         <Link to={"/browse/" + movieId}>
